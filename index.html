@@ -20,7 +20,7 @@
 
         <button class="btn btn-primary" onclick="window.print()">🖨️ Print / Save PDF</button>
         <button class="btn btn-success" onclick="copyCodeModal()">📋 Copy Code</button>
-
+        
         <div class="btn-grid">
             <button class="btn btn-dark" onclick="openCodeModal()">💻 View Code</button>
             <button class="btn btn-dark" onclick="exportJSON()">📤 Export</button>
@@ -43,7 +43,7 @@
         </div>
 
         <div class="section-title">Header & Titles</div>
-
+        
         <div class="control-row">
             <div class="control-group">
                 <label>Left Subtitle</label>
@@ -57,7 +57,7 @@
 
         <div class="control-group">
             <label>Target / Goal Text</label>
-            <input type="text" id="targetGoalInput" value="IIT Bangalore -> AIR under 1000" oninput="saveConfig()">
+            <input type="text" id="targetGoalInput" value="IIIT Bangalore -> AIR under 1000" oninput="saveConfig()">
         </div>
 
         <div class="control-row">
@@ -77,10 +77,10 @@
         </div>
 
         <div class="section-title">Checkboxes Config</div>
-
+        
         <div class="control-group">
-            <label>Lectures Count <span class="slider-val" id="lecVal">2</span></label>
-            <input type="range" id="lecCountInput" min="1" max="6" value="2" oninput="updateSliderVal('lec', this.value); saveConfig();">
+            <label>Lectures Count <span class="slider-val" id="lecVal">4</span></label>
+            <input type="range" id="lecCountInput" min="1" max="6" value="4" oninput="updateSliderVal('lec', this.value); saveConfig();">
         </div>
 
         <div class="control-group">
