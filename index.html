@@ -8,14 +8,18 @@
 </head>
 <body>
 
+    <!-- Mobile Floating Toggle Button -->
+    <button class="mobile-toggle-btn" onclick="toggleSidebar()">⚙️ Settings</button>
+
     <!-- Sidebar Control Panel -->
-    <div class="sidebar">
+    <div class="sidebar" id="sidebarPanel">
         <div class="brand">
             <div class="brand-icon">🎓</div>
             <div class="brand-text">
-                <h1>Study Tracker Generator</h1>
-                <p>Customizable Day-Wise Checklist</p>
+                <h1>Study Tracker</h1>
+                <p>Customizable Checklist</p>
             </div>
+            <button class="close-sidebar-btn" onclick="toggleSidebar()">✕</button>
         </div>
 
         <button class="btn btn-primary" onclick="window.print()">🖨️ Print / Save PDF</button>
