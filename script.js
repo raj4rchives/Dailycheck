@@ -11,7 +11,7 @@ function getConfig() {
         headerSubRight: document.getElementById('headerSubRightInput').value,
         targetGoal: document.getElementById('targetGoalInput').value,
         daySub: document.getElementById('daySubInput').value,
-        lecCount: parseInt(document.getElementById('lecCountInput').value) || 2,
+        lecCount: parseInt(document.getElementById('lecCountInput').value) || 4,
         qCount: parseInt(document.getElementById('qCountInput').value) || 10,
         interactive: document.getElementById('interactiveToggle').checked,
         cols: {
@@ -106,8 +106,8 @@ function generateTracker() {
                 <table>
                     <thead>
                         <tr>
-                            <th style="width: 12%;">DAY</th>
-                            <th style="width: 17%;">LECTURES</th>
+                            <th style="width: 11%;">DAY</th>
+                            <th style="width: 18%;">LECTURES</th>
         `;
 
         if (config.cols.hw.active) html += `<th style="width: 9%;">${config.cols.hw.label}</th>`;
@@ -115,7 +115,7 @@ function generateTracker() {
         if (config.cols.pyq.active) html += `<th style="width: 8%;">${config.cols.pyq.label}</th>`;
         
         let qWidth = 46 - (activeColsCount * 8);
-        if (qWidth < 20) qWidth = 20;
+        if (qWidth < 22) qWidth = 22;
         html += `<th style="width: ${qWidth}%;">QUESTIONS (${config.qCount} = ${config.qCount} $\Box$)</th>`;
 
         if (config.cols.rev.active) html += `<th style="width: 8%;">${config.cols.rev.label}</th>`;
@@ -185,7 +185,7 @@ function generateTracker() {
                 </table>
             </div>
             <div class="page-footer-info">
-                <span>Page ${p + 1} of ${totalPages}</span>
+                <span>Page ${p + 1} of ${totalPages} · ${config.daysPerPage} days per A4 page</span>
                 <span>${config.headerSubRight}</span>
             </div>
         `;
@@ -284,4 +284,3 @@ window.onload = function() {
     loadConfig();
     generateTracker();
 };
-       
