@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>150-Day Study Tracker Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Sidebar Control Panel -->
+    <div class="sidebar">
+        <div class="brand">
+            <div class="brand-icon">🎓</div>
+            <div class="brand-text">
+                <h1>Study Tracker Generator</h1>
+                <p>Customizable Day-Wise Checklist</p>
+            </div>
+        </div>
+
+        <button class="btn btn-primary" onclick="window.print()">🖨️ Print / Save PDF</button>
+        <button class="btn btn-success" onclick="copyCodeModal()">📋 Copy Code</button>
+
+        <div class="btn-grid">
+            <button class="btn btn-dark" onclick="openCodeModal()">💻 View Code</button>
+            <button class="btn btn-dark" onclick="exportJSON()">📤 Export</button>
+            <button class="btn btn-dark" onclick="triggerImport()">📥 Import</button>
+            <input type="file" id="importFile" style="display:none" onchange="importJSON(event)">
+        </div>
+        <button class="btn btn-danger" onclick="clearData()">🗑️ Clear All Progress</button>
+
+        <div class="section-title">
+            <span>Settings Panel</span>
+            <span style="font-size: 0.65rem; color: var(--text-muted); cursor: pointer;" onclick="resetConfig()">Reset Config</span>
+        </div>
+
+        <div class="control-group">
+            <label>Interactive Mode (Live Checkboxes)</label>
+            <div class="checkbox-row" style="background:#0f172a;">
+                <label for="interactiveToggle">Enable State Saving</label>
+                <input type="checkbox" id="interactiveToggle" checked onchange="saveConfig()">
+            </div>
+        </div>
+
+        <div class="section-title">Header & Titles</div>
+
+        <div class="control-row">
+            <div class="control-group">
+                <label>Left Subtitle</label>
+                <input type="text" id="headerSubInput" value="YOUR DAILY PLAN" oninput="saveConfig()">
+            </div>
+            <div class="control-group">
+                <label>Right Subtitle</label>
+                <input type="text" id="headerSubRightInput" value="EXAMTRACK" oninput="saveConfig()">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label>Target / Goal Text</label>
+            <input type="text" id="targetGoalInput" value="IIT Bangalore -> AIR under 1000" oninput="saveConfig()">
+        </div>
+
+        <div class="control-row">
+            <div class="control-group">
+                <label>Total Days</label>
+                <input type="number" id="totalDaysInput" value="150" min="10" max="365" oninput="saveConfig()">
+            </div>
+            <div class="control-group">
+                <label>Days Per Page</label>
+                <input type="number" id="daysPerPageInput" value="20" min="5" max="31" oninput="saveConfig()">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label>Day Tag (Below Day #)</label>
+            <input type="text" id="daySubInput" value="JEE TRACK" oninput="saveConfig()">
+        </div>
+
+        <div class="section-title">Checkboxes Config</div>
+
+        <div class="control-group">
+            <label>Lectures Count <span class="slider-val" id="lecVal">2</span></label>
+            <input type="range" id="lecCountInput" min="1" max="6" value="2" oninput="updateSliderVal('lec', this.value); saveConfig();">
+        </div>
+
+        <div class="control-group">
+            <label>Questions Count <span class="slider-val" id="qVal">10</span></label>
+            <input type="range" id="qCountInput" min="0" max="20" value="10" oninput="updateSliderVal('q', this.value); saveConfig();">
+        </div>
+
+        <div class="section-title">Table Columns</div>
+
+        <div class="checkbox-row">
+            <label><input type="checkbox" id="colHwCheck" checked onchange="saveConfig()"> HW / Module</label>
+            <input type="text" id="colHwLabel" value="HW / MODULE" oninput="saveConfig()">
+        </div>
+        <div class="checkbox-row">
+            <label><input type="checkbox" id="colDppCheck" checked onchange="saveConfig()"> DPP</label>
+            <input type="text" id="colDppLabel" value="DPP" oninput="saveConfig()">
+        </div>
+        <div class="checkbox-row">
+            <label><input type="checkbox" id="colPyqCheck" checked onchange="saveConfig()"> PYQ</label>
+            <input type="text" id="colPyqLabel" value="PYQ" oninput="saveConfig()">
+        </div>
+        <div class="checkbox-row">
+            <label><input type="checkbox" id="colRevCheck" checked onchange="saveConfig()"> Revision</label>
+            <input type="text" id="colRevLabel" value="REV" oninput="saveConfig()">
+        </div>
+        <div class="checkbox-row">
+            <label><input type="checkbox" id="colCustomCheck" onchange="saveConfig()"> Custom Column</label>
+            <input type="text" id="colCustomLabel" value="NOTES" oninput="saveConfig()">
+        </div>
+    </div>
+
+    <!-- Main Dynamic Pages Container -->
+    <div class="main-content" id="printContainer"></div>
+
+    <!-- Code View Modal -->
+    <div class="modal" id="codeModal">
+        <div class="modal-content">
+            <h3>Source Code View</h3>
+            <textarea id="codeTextArea" readonly></textarea>
+            <div style="display:flex; gap:10px;">
+                <button class="btn btn-primary" onclick="copyCodeFromModal()">Copy Full Code</button>
+                <button class="btn btn-dark" onclick="closeCodeModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
