@@ -1,3 +1,8 @@
+function toggleSidebar() {
+    const sidebar = document.getElementById('sidebarPanel');
+    sidebar.classList.toggle('active');
+}
+
 function updateSliderVal(type, val) {
     document.getElementById(type + 'Val').innerText = val;
     generateTracker();
