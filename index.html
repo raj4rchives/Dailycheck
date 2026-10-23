@@ -13,7 +13,7 @@
     <h1>📚 EXAMYTRACK</h1>
     <p>by Raj Sharma · 14-Day Offline Progress Tracker</p>
   </div>
-  <div class="headerActions"><button id="syllabusBtn">📚 Syllabus Tracker</button><button class="themeBtn" id="themeBtn">🎨 Themes</button></div>
+  <button class="themeBtn" id="themeBtn">🎨 Themes</button>
 </header>
 
 <main>
@@ -65,47 +65,6 @@
 
 <!-- Generated automatically: 20 days per printable A4 page -->
 <div id="printPages"></div>
-
-<!-- Syllabus Tracker -->
-<div class="modal" id="syllabusModal" aria-hidden="true">
-  <div class="modalCard">
-    <div class="modalHead">
-      <div>
-        <div class="eyebrow">JEE SYLLABUS TRACKER</div>
-        <h2>📚 Syllabus Tracker</h2>
-        <p>Add Subject, Chapter Name and Total Lectures. The PDF is made for offline ticking.</p>
-      </div>
-      <button class="closeBtn" id="closeSyllabus">✕</button>
-    </div>
-
-    <div class="syllabusActionsTop">
-      <button id="loadPhysicsExample">⚡ Load Physics Example</button>
-      <button id="clearSyllabus">Clear Syllabus</button>
-      <button class="primary" id="downloadSyllabus">📄 Download A4 PDF</button>
-    </div>
-
-    <div class="syllabusForm">
-      <label>Subject
-        <select id="sySubject">
-          <option>Physics</option><option>Chemistry</option><option>Mathematics</option><option>Biology</option><option>Other</option>
-        </select>
-      </label>
-      <label>Chapter Name
-        <input id="syChapter" placeholder="e.g. Laws of Motion">
-      </label>
-      <label>Total Lectures
-        <input id="syLectures" type="number" min="0" max="99" placeholder="e.g. 13">
-      </label>
-      <button class="primary addChapterBtn" id="addChapter">＋ Add Chapter</button>
-    </div>
-
-    <div class="syNote">Each lecture gets an <b>L1, L2, L3...</b> box. The PDF also includes separate boxes for <b>Main Level, Adv Level, Short Notes, DPP, HW, Module, PYQ, Test, R1, R2 and R3</b>.</div>
-    <div id="syllabusPreview" class="syllabusPreview"></div>
-  </div>
-</div>
-
-<!-- Printable syllabus PDF -->
-<div id="syllabusPrint"></div>
 </main>
 
 <div class="themeMenu" id="themeMenu">
